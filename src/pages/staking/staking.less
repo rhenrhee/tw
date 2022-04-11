@@ -1,0 +1,130 @@
+.stake-content {
+  padding: 24px;
+
+  .container {
+    .ant-layout,
+    .ant-layout-sider {
+      background: @white;
+    }
+
+    .ant-layout-content {
+      margin: 0;
+    }
+
+    .description {
+      margin-bottom: 20px;
+      color: @font-color;
+    }
+
+    .view-unstaking {
+      text-align: right;
+    }
+
+    .amount {
+      .ant-form-item {
+        margin: 0;
+      }
+
+      .available {
+        position: relative;
+        margin: 5px 0 0 0;
+
+        span {
+          color: @font-color;
+        }
+
+        .available-amount {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+
+    .ant-form {
+      max-width: 500px;
+
+      .ant-input[disabled] {
+        color: #000;
+        background: #fff !important;
+      }
+    }
+
+    .ant-btn {
+      width: 100%;
+      margin: 24px 0 -24px 0;
+    }
+
+    .ant-input-search-button {
+      margin: 0;
+      background-color: transparent;
+    }
+  }
+
+  .input-validator-address {
+    .ant-form-item-children-icon {
+      right: 48px !important;
+    }
+  }
+}
+
+.reward-modal {
+  .ant-modal-content {
+    .fiat {
+      color: @azure;
+    }
+  }
+}
+
+.validator-modal {
+  .ant-modal-content {
+    // display: inline-block;
+    .ant-modal-body {
+      padding: 32px 32px 0 32px;
+
+      .ant-table {
+        overflow: auto;
+
+        .cumulative-stake33 {
+          color: #022d74;
+          white-space: normal;
+          text-align: center;
+          text-transform: uppercase;
+        }
+
+        .grey-background {
+          background: #f4f4f4;
+
+          td {
+            background: #f4f4f4;
+          }
+
+          + tr.ant-table-expanded-row {
+            background: #f4f4f4;
+          }
+        }
+      }
+    }
+
+    .ant-modal-footer {
+      display: none;
+    }
+  }
+}
+
+.unbonding-modal {
+  width: 1000px !important;
+}
+
+.alert-item {
+  .ant-layout,
+  .ant-layout-sider {
+    background: none !important;
+  }
+  .ant-layout-content {
+    margin: auto;
+  }
+  &.notice {
+    color: @font-color;
+  }
+}

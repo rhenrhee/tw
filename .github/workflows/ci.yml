@@ -1,0 +1,43 @@
+name: Test & Build
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: Build CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        id: cache-deps
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node12-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Refresh 
+        run:  |
+          sudo apt-get update 
+
+      - name: Setup dependencies
+        run:  |
+          sudo apt-get install -y libusb-1.0-0-dev libudev-dev  
+ 
+      - name: Install deps and tools
+        run: |
+          yarn install
+
+      - name: Running Lint
+        run: |
+          yarn lint:js
+
+      - name: Run All Tests
+        run: |
+          yarn test
+
+
