@@ -4,10 +4,12 @@ import { AssetCreationType, UserAssetConfig, UserAssetType } from '../models/Use
 import { WalletConfig, SupportedChainName } from './StaticConfig';
 import { checkIfTestnet } from '../utils/utils';
 import iconETHSvg from '../assets/icon-eth.svg';
+import iconBNBSvg from '../assets/icon-bnb.svg';
+import iconBTCSvg from '../assets/icon-btc.svg';
 import { ICON_CRO_EVM, ICON_CRO_TENDERMINT } from '../components/AssetIcon';
 
 // This will be used later for asset recreation/migration
-export const STATIC_ASSET_COUNT = 3;
+export const STATIC_ASSET_COUNT = 5;
 
 // Update Explorer Url - https://cronoscan.com
 export const MAINNET_EVM_EXPLORER_URL = 'https://cronoscan.com';
@@ -149,6 +151,108 @@ export const ETH_ASSET = (walletConfig: WalletConfig) => {
     name: SupportedChainName.ETHEREUM,
     symbol: 'ETH',
     mainnetSymbol: 'ETH', // This is to be used solely for markets data since testnet market prices is always non existent
+    stakedBalance: '0',
+    unbondingBalance: '0',
+    rewardsBalance: '0',
+    decimals: 18,
+    assetType: UserAssetType.EVM,
+    isSecondaryAsset: true,
+    assetCreationType: AssetCreationType.STATIC,
+    config,
+  };
+};
+
+export const BNB_ASSET = (walletConfig: WalletConfig) => {
+  const { network } = walletConfig;
+
+  const isTestnet = checkIfTestnet(network);
+
+  const config: UserAssetConfig = {
+    explorer: {
+      tx: isTestnet
+        ? 'https://cronos.crypto.org/explorer/testnet3/tx'
+        : 'https://cronos.crypto.org/explorer/tx',
+      address: isTestnet
+        ? 'https://cronos.crypto.org/explorer/testnet3/address'
+        : 'https://cronos.crypto.org/explorer/address',
+    },
+    explorerUrl: isTestnet
+      ? 'https://cronos.crypto.org/explorer/testnet3'
+      : 'https://cronos.crypto.org/explorer',
+
+    chainId: isTestnet ? '3' : '1',
+
+    fee: { gasLimit: `50000`, networkFee: `20000000000` },
+    indexingUrl: isTestnet
+      ? 'https://cronos.crypto.org/explorer/testnet3/api'
+      : 'https://cronos.crypto.org/explorer/api',
+    isLedgerSupportDisabled: false,
+    isStakingDisabled: false,
+    nodeUrl: isTestnet
+      ? 'https://ropsten.infura.io/v3/8baf8ee1539c497ab4773d983c7367bf'
+      : 'https://mainnet.infura.io/v3/8baf8ee1539c497ab4773d983c7367bf',
+    memoSupportDisabled: true,
+  };
+
+  return {
+    balance: '0',
+    description: '',
+    icon_url: iconBNBSvg,
+    identifier: getRandomId(),
+    name: SupportedChainName.BNB,
+    symbol: 'BNB',
+    mainnetSymbol: 'BNB', // This is to be used solely for markets data since testnet market prices is always non existent
+    stakedBalance: '0',
+    unbondingBalance: '0',
+    rewardsBalance: '0',
+    decimals: 18,
+    assetType: UserAssetType.EVM,
+    isSecondaryAsset: true,
+    assetCreationType: AssetCreationType.STATIC,
+    config,
+  };
+};
+
+export const BTC_ASSET = (walletConfig: WalletConfig) => {
+  const { network } = walletConfig;
+
+  const isTestnet = checkIfTestnet(network);
+
+  const config: UserAssetConfig = {
+    explorer: {
+      tx: isTestnet
+        ? 'https://ropsten.etherscan.io/tx'
+        : 'https://etherscan.io/tx',
+      address: isTestnet
+        ? 'https://ropsten.etherscan.io/address'
+        : 'https://etherscan.io/address',
+    },
+    explorerUrl: isTestnet
+      ? 'https://ropsten.etherscan.io'
+      : 'https://etherscan.io',
+
+    chainId: isTestnet ? '3' : '1',
+
+    fee: { gasLimit: `50000`, networkFee: `20000000000` },
+    indexingUrl: isTestnet
+      ? 'https://api.blockchair.com/ethereum/testnet/dashboards'
+      : 'https://api.blockchair.com/ethereum/dashboards',
+    isLedgerSupportDisabled: false,
+    isStakingDisabled: false,
+    nodeUrl: isTestnet
+      ? 'https://ropsten.infura.io/v3/8baf8ee1539c497ab4773d983c7367bf'
+      : 'https://mainnet.infura.io/v3/8baf8ee1539c497ab4773d983c7367bf',
+    memoSupportDisabled: true,
+  };
+
+  return {
+    balance: '0',
+    description: '',
+    icon_url: iconBTCSvg,
+    identifier: getRandomId(),
+    name: SupportedChainName.BITCOIN,
+    symbol: 'BTC',
+    mainnetSymbol: 'BTC', // This is to be used solely for markets data since testnet market prices is always non existent
     stakedBalance: '0',
     unbondingBalance: '0',
     rewardsBalance: '0',

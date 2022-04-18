@@ -126,9 +126,6 @@ export const SHOW_WARNING_INCORRECT_ATTEMPTS = 5;
 export const DEFAULT_LANGUAGE_CODE = 'enUS';
 export const SUPPORTED_LANGUAGE = [
   { value: 'enUS', label: 'English' },
-  { value: 'zhHK', label: '繁體中文' },
-  { value: 'zhCN', label: '简体中文' },
-  { value: 'koKR', label: '한국어' },
 ];
 
 export interface SupportedCurrency {
@@ -203,6 +200,7 @@ export enum SupportedChainName {
   CRONOS = 'Cronos Chain',
   ETHEREUM = 'Ethereum Chain',
   BNB = 'Binance Chain',
+  BITCOIN = 'Bitcoin Chain',
 }
 
 export interface SupportedBridge {

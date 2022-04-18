@@ -325,7 +325,7 @@
   "send.formSend.amount.error1": "Sending Amount exceeds your available wallet balance",
   "send.formSend.amount.error2": "Sending Amount is lower than minimum allowed of",
   "send.formSend.memo.label": "Memo (Optional)",
-  "send.formSend.disclaimer": "Transferring your {{assetSymbol}} to any recipient address that is not on {{assetName}} may result in permanent loss of your funds.",
+  "send.formSend.disclaimer": "Transferring your {{assetSymbol}} to any recipient address that is not on TrustWallet may result in permanent loss of your funds.",
   "send.modal1.title": "Confirm Transaction",
   "send.modal1.description": "Please review the below information. ",
   "send.modal1.label1": "Sender Address",

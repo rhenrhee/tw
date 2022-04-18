@@ -180,6 +180,8 @@ export function getChainName(name: string | undefined = '', config: WalletConfig
       case SupportedChainName.CRONOS:
       case SupportedChainName.CRYPTO_ORG:
       case SupportedChainName.ETHEREUM:
+      case SupportedChainName.BNB:
+      case SupportedChainName.BITCOIN:
         return name.replace('Chain', 'Testnet');
       default:
         return name;

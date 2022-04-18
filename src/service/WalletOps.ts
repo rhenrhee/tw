@@ -1,7 +1,7 @@
 import { WalletConfig } from '../config/StaticConfig';
 import { AddressGenerator } from './AddressGenerator';
 import { UserAsset, UserAssetType } from '../models/UserAsset';
-import { CRONOS_TENDERMINT_ASSET, CRONOS_EVM_ASSET, ETH_ASSET } from '../config/StaticAssets';
+import { CRONOS_TENDERMINT_ASSET, CRONOS_EVM_ASSET, ETH_ASSET, BNB_ASSET, BTC_ASSET } from '../config/StaticAssets';
 import { HDKey } from '../utils/ChainJsLib';
 import { Wallet } from '../models/Wallet';
 
@@ -22,6 +22,16 @@ export class WalletOps {
       },
       {
         ...ETH_ASSET(config),
+        walletId: walletIdentifier,
+        address: addressGenerator.getAddress(UserAssetType.EVM),
+      },
+      {
+        ...BNB_ASSET(config),
+        walletId: walletIdentifier,
+        address: addressGenerator.getAddress(UserAssetType.EVM),
+      },
+      {
+        ...BTC_ASSET(config),
         walletId: walletIdentifier,
         address: addressGenerator.getAddress(UserAssetType.EVM),
       },

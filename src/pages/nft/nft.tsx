@@ -627,7 +627,7 @@ const FormMintNft = () => {
         >
           <Input
             maxLength={64}
-            placeholder={`${t('nft.formMintNft.drop.placeholder')} "Crypto.org Genesis"`}
+            placeholder={`${t('nft.formMintNft.drop.placeholder')} "TrustWallet Genesis"`}
           />
         </Form.Item>
         <Form.Item
